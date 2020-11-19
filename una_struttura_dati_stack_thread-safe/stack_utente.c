@@ -16,7 +16,6 @@ void *Inserisci(void * s)
 		
 		/* TBD: Effettuare un inserimento con StackPush() */ 
 		
-		printf("Inserimento: %d\n", v);
 		sleep(1);
 	}
 
@@ -35,12 +34,7 @@ void *Preleva(void * s)
 
 		/* TBD: Prelevare con StackPop() in v1 */
 
-		printf("Prelievo: %d\n", v1);
-
-
 		/* TBD: Prelevare con StackPop() in v2 */
-
-		printf("Prelievo: %d\n", v2);
 
 		printf("Somma: %d\n", v1+v2);
 

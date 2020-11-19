@@ -26,6 +26,8 @@ void StackPush(Stack * s, Elem e) {
 	s->dati[s->testa] = e;
 	s->testa++;
 
+	printf("Inserimento: %d\n", e);
+
 }
 
 
@@ -37,6 +39,8 @@ Elem StackPop(Stack * s) {
 
 	s->testa--;	
 	elemento=s->dati[s->testa];
+
+	printf("Prelievo: %d\n", elemento);
 
 	return elemento;
 }
