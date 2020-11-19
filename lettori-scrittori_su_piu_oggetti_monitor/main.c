@@ -51,13 +51,10 @@ int main() {
 	m[2]->id_treno=3;
 	m[3]->id_treno=4;
 
-	//creazione dei 4 threads capitreno
-	for(i=0;i<4;i++){
-		pthread_create(&capo[i],NULL,Capotreno, (void*)  m[i]);
-	}
 
 	/* TBD: Avviare 4 thread, facendogli eseguire la funzione Capotreno(),
-	 * 	    e passando ad ognuno una istanza di monitor diversa m[i] */
+	 * 	e passando ad ognuno una istanza di monitor diversa m[i]
+	 */
 
 
 	/* TBD: Avviare 10 thread, facendogli eseguire la funzione Viaggiatori(),
