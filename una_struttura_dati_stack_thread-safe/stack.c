@@ -7,6 +7,12 @@ void StackInit(Stack * s, int dim) {
 
 	/* TBD: Inizializzare mutex e variabili condition */
 
+
+	/* Il costruttore crea in memoria dinamica (heap)
+	 * l'area di memoria per ospitare gli elementi dello stack.
+	 * Il parametro "dim" indica il numero massimo di elementi.
+	 */
+
 	s->dati = (Elem *) malloc(sizeof(Elem)*dim);
 	s->dim = dim;
 	s->testa = 0;
@@ -39,7 +45,7 @@ Elem StackPop(Stack * s) {
 	/* TBD: Aggiungere la sincronizzazione */
 
 	s->testa--;
-	elemento=s->dati[s->testa];
+	elemento = s->dati[s->testa];
 
 	printf("Prelievo: %d\n", elemento);
 
