@@ -1,7 +1,7 @@
 Una struttura dati stack thread-safe
 ====================================
 
-i realizzi in linguaggio C/C++ un tipo di dato astratto **Stack** che
+Si realizzi in linguaggio C/C++ un tipo di dato astratto **Stack** che
 sia **thread-safe**, ossia i cui metodi siano richiamabili da più thread
 garantendo che non più di un thread alla volta possa modificare i dati
 incapsulati. Si utilizzi il costrutto **Monitor** basandosi sulla
@@ -23,13 +23,15 @@ classe):
     Elem StackPop(Stack * s);       // estrazione dallo Stack
     int StackSize(Stack * s);       // ritorna il numero attuale di elementi
 
-Se un thread invoca un metodo dello Stack mentre un altro thread sta già
-eseguendo un metodo, esso deve essere messo in attesa finché l'altro
-thread non ha terminato l'esecuzione del metodo. Se lo Stack è vuoto, un
-thread che invoca `StackPop()` deve essere messo in attesa fino a quando
-un nuovo elemento sarà stato inserito. Se lo Stack è pieno, un thread
-che invoca `StackPush()` deve essere messo in attesa fino a quando un
-elemento sarà stato rimosso.
+È richiesto che i metodi dello Stack eseguano in mutua esclusione
+(se un thread sta già eseguendo un metodo, gli eventuali altri thread
+che invocano i metodi devono essere messi in attesa).
+Se lo Stack è vuoto, un thread che invoca `StackPop()` deve essere 
+messo in attesa fino a quando un nuovo elemento sarà stato inserito. 
+Se lo Stack è pieno, un thread che invoca `StackPush()` deve essere 
+messo in attesa fino a quando un elemento sarà stato rimosso.
+Il metodo `StackSize()` si limita a consultare il numero di elementi
+attualmente presenti nello Stack.
 
 Si sviluppi inoltre un programma che utilizzi lo Stack. Il programma
 deve istanziare 5 thread, ciascuno dei quali inserisce un valore intero
