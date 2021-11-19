@@ -1,5 +1,6 @@
 #include "stack.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 void StackInit(Stack * s, int dim) {
@@ -22,7 +23,7 @@ void StackRemove(Stack * s) {
 void StackPush(Stack * s, Elem e) {
 
 	/* TBD: Aggiungere la sincronizzazione */
-	
+
 	s->dati[s->testa] = e;
 	s->testa++;
 
@@ -37,7 +38,7 @@ Elem StackPop(Stack * s) {
 
 	/* TBD: Aggiungere la sincronizzazione */
 
-	s->testa--;	
+	s->testa--;
 	elemento=s->dati[s->testa];
 
 	printf("Prelievo: %d\n", elemento);
@@ -46,7 +47,7 @@ Elem StackPop(Stack * s) {
 }
 
 int StackSize(Stack * s) {
-	
+
 	int size;
 
 	/* TBD: Aggiungere la sincronizzazione */
