@@ -19,11 +19,11 @@ void rimuovi (struct monitor* m){
 void scrivi_stazione(struct monitor* m, int stazione){
 
 	/* TBD: Implementare qui lo schema dei lettori-scrittori con starvation di entrambi.
-	 * 
+	 *
 	 * 		Utilizzare una variabile "num_cv_scrittori" per contare il numero
 	 * 		di scrittori in attesa sulla variabile condition (da affiancare in aggiunta
 	 * 		alla variabile "num_scrittori" dell'algoritmo).
-	 * 
+	 *
 	 * 		La variabile "num_cv_scrittori" deve essere incrementata subito prima
 	 * 		di wait_cond(), e decrementata subito dopo di wait_cond().
 	 */
@@ -31,6 +31,7 @@ void scrivi_stazione(struct monitor* m, int stazione){
 
 	// SCRITTURA
 	m->stazione=stazione;
+	printf("Scrittura: stazione=%d\n", stazione);
 
 
 }
@@ -40,11 +41,11 @@ void scrivi_stazione(struct monitor* m, int stazione){
 int leggi_stazione(struct monitor* m){
 
 	/* TBD: Implementare qui lo schema dei lettori-scrittori con starvation di entrambi.
-	 * 
+	 *
 	 * 		Utilizzare una variabile "num_cv_lettori" per contare il numero
 	 * 		di lettori in attesa sulla variabile condition (da affiancare in aggiunta
 	 * 		alla variabile "num_lettori" dell'algoritmo).
-	 * 
+	 *
 	 * 		La variabile "num_cv_lettori" deve essere incrementata subito prima
 	 * 		di wait_cond(), e decrementata subito dopo di wait_cond().
 	 */
@@ -53,6 +54,8 @@ int leggi_stazione(struct monitor* m){
 
 	// LETTURA
 	int ris=m->stazione;
+	printf("Lettura: stazione=%d\n", ris);
+
 
 	return ris;
 }
