@@ -23,6 +23,8 @@ void produci_alta_prio(PriorityProdCons* p){
 
 	int value;
 
+	printf("Produttore tipo 1 accede al monitor\n");
+
 
     /* TBD: Implementare la sincronizzazione secondo lo schema del
      *      produttore-consumatore con vettore di buffer circolare.
@@ -32,9 +34,12 @@ void produci_alta_prio(PriorityProdCons* p){
      */
 
 
+	/* Produzione */
+
 	value = rand() % 12;
 
-    printf("Produzione priorità alta: %d\n", value);
+	printf("Produttore tipo 1 ha prodotto %d\n", value);
+
 
 }
 
@@ -43,7 +48,10 @@ void produci_alta_prio(PriorityProdCons* p){
 
 void produci_bassa_prio(PriorityProdCons* p){
 
-    int value;
+	int value;
+
+	printf("Produttore tipo 2 accede al monitor\n");
+
 
     /* TBD: Implementare la sincronizzazione secondo lo schema del
      *      produttore-consumatore con vettore di buffer circolare.
@@ -57,11 +65,11 @@ void produci_bassa_prio(PriorityProdCons* p){
      */
 
 
-
+	/* Produzione */
 
 	value = 13 + (rand() % 12);
 
-    printf("Produzione priorità bassa: %d\n", value);
+	printf("Produttore tipo 2 ha prodotto %d\n", value);
 
 
 }
@@ -73,16 +81,20 @@ void consuma(PriorityProdCons* p){
 
 	int value;
 
+	printf("Consumatore accede al monitor\n");
+
 
     /* TBD: Implementare la sincronizzazione secondo lo schema del
      *      produttore-consumatore con vettore di buffer circolare.
      */
 
-    /* Consumazione */
+
+	/* Consumazione */
 
 	value = /* TBD */
 
-	printf("Consumato valore %d\n", value);
+	printf("Consumatore ha consumato %d\n", value);
 
 
 }
+
