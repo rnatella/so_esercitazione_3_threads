@@ -1,7 +1,8 @@
-#include "stack.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+
+#include "stack.h"
 
 void *Inserisci(void * s)
 {

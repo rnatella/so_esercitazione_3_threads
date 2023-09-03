@@ -1,7 +1,7 @@
-#include "stack.h"
-
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "stack.h"
 
 void StackInit(Stack * s, int dim) {
 
@@ -14,6 +14,7 @@ void StackInit(Stack * s, int dim) {
 	 */
 
 	s->dati = (Elem *) malloc(sizeof(Elem)*dim);
+
 	s->dim = dim;
 	s->testa = 0;
 }
