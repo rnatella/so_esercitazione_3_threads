@@ -9,8 +9,8 @@ void * produttore_alta_priorita(void * p)
 {
 
 	int i;
-	    
-    
+
+
 	for(i=0; i<3; i++) {
 
 		/* TBD: Chiamare il metodo di produzione alta priorità */
@@ -24,35 +24,35 @@ void * produttore_alta_priorita(void * p)
 
 void * produttore_bassa_priorita(void * p)
 {
-    
+
 	int i;
-        
-    
+
+
 	for(i=0; i<3; i++) {
-        
+
 		/* TBD: Chiamare il metodo di produzione bassa priorità */
 
 		sleep(1);
 	}
-    
+
 	pthread_exit(NULL);
 }
 
 
 void * consumatore(void * p)
 {
-    
+
 	int i;
 
-    
-    
+
+
 	for(i=0; i<12; i++) {
-        
+
 		/* TBD: Chiamare il metodo consuma() */
-        
+
 		sleep(1);
 	}
-    
+
 	pthread_exit(NULL);
 }
 
@@ -64,30 +64,30 @@ int main(int argc, char *argv[])
 
 	pthread_t threads[5];
 	pthread_attr_t attr;
-    
+
 	int rc;
 	int i;
 
 	srand(time(NULL));
 
-    
+
 	PriorityProdCons * prodcons = /* TBD: Allocare un oggetto monitor */;
 
-    
-    
+
+
 	/* TBD: Inizializzare l'oggetto monitor */
 
 
-	/* TBD: Creare 3 thread produttore bassa priorità, 
+	/* TBD: Creare 3 thread produttore bassa priorità,
 	 *      1 thread produttore alta priorità,
 	 *      e 1 thread consumatore.
 	 */
-	
-    
+
+
 	/* TBD: Effettuare la join con i thread */
 
 
+	/* TBD: Richiamare il distruttore dell'oggetto monitor e deallocarlo */
 
-	/* TBD: Richiamare il distrutture dell'oggetto monitor */
 }
 

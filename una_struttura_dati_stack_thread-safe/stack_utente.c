@@ -17,6 +17,9 @@ void *Inserisci(void * s)
 
 		/* TBD: Effettuare un inserimento con StackPush() */
 
+		int size = /* TBD: Chiamare il metodo StackSize() */
+		printf("Dimensione: %d\n", size);
+
 		sleep(1);
 	}
 
@@ -39,6 +42,9 @@ void *Preleva(void * s)
 
 		printf("Somma: %d\n", v1+v2);
 
+		int size = /* TBD: Chiamare il metodo StackSize() */
+		printf("Dimensione: %d\n", size);
+
 		sleep(3);
 	}
 
@@ -56,7 +62,7 @@ int main(int argc, char *argv[])
 	srand(time(NULL));
 
 
-	Stack * stack = /* TBD: Creare un oggetto stack */
+	Stack * stack = /* TBD: Allocare un oggetto stack */
 
 	/* TBD: Inizializzare lo stack con StackInit(),
 	 *      indicando "4" come dimensione massima */
@@ -87,6 +93,7 @@ int main(int argc, char *argv[])
 	 *      che ha eseguito Preleva() */
 
 
-	/* TBD: Disattivare l'oggetto stack con StackRemove() */
+	/* TBD: Disattivare l'oggetto stack con StackRemove(),
+	 *      e deallocarlo dalla memoria */
 }
 
