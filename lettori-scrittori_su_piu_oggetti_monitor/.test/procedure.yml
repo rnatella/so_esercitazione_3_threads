@@ -34,6 +34,7 @@ rules:
             pthread_mutex_lock(...);
             ...
             pthread_mutex_unlock(...);
+            return $RIS;
           }
       - pattern-not: |
           int leggi_stazione(...){
@@ -44,6 +45,7 @@ rules:
             pthread_mutex_lock(...);
             ...
             pthread_mutex_unlock(...);
+            return $RIS;
           }
 
     message: È necessario che la lettura sia effettuata uscendo dal monitor (ossia, liberando temporaneamente la sezione critica del
@@ -56,7 +58,7 @@ rules:
     patterns:
       - pattern: |
           int leggi_stazione(...){
-          ...
+            ...
           }
       - pattern-not: |
           int leggi_stazione(...){
@@ -66,34 +68,56 @@ rules:
             pthread_mutex_unlock(...);
             ...
             pthread_mutex_lock(...);
+            ...
           }
       - pattern-not: |
           int scrivi_stazione(...){
             ...
             pthread_cond_broadcast(...);
+            ...
           }
 
-    message: Quando termina una scrittura, è necessario risvegliare *tutti* gli eventuali thread lettori in attesa.
-             Questo comportamento si può ottenere in due modi: 1) prima della lettura, il lettore chiama cond_signal() per risvegliare
-             un ulteriore lettore; oppure 2) lo scrittore risveglia simultaneamente tutti i lettori sospesi chiamando cond_broadcast()
+    message: Quando termina una scrittura, è necessario risvegliare tutti gli eventuali thread lettori in attesa. Sono consentite due soluzioni. 1) prima della lettura, il lettore chiama cond_signal() per risvegliare un ulteriore lettore; oppure 2) lo scrittore risveglia simultaneamente tutti i lettori sospesi chiamando cond_broadcast()
     languages:
       - c
     severity: ERROR
 
   - id: missing-loop
     pattern-either:
-      - patterns:
-          - pattern: |
-              void scrivi_stazione(...){
-                ...
-              }
-          - pattern-not-inside: ... while(...){...}
-      - patterns:
-          - pattern: |
-              int leggi_stazione(...){
-                ...
-              }
-          - pattern-not-inside: ... while(...){...}
+      - pattern: |
+          void scrivi_stazione(...){
+            ...
+            if(...) {
+              ...
+              pthread_cond_wait(...);
+              ...
+            }
+            ...
+          }
+      - pattern: |
+          void scrivi_stazione(...){
+            ...
+            if(...)
+              pthread_cond_wait(...);
+            ...
+          }
+      - pattern: |
+          int leggi_stazione(...){
+            ...
+            if(...){
+              ...
+              pthread_cond_wait(...);
+              ...
+            }
+            ...
+          }
+      - pattern: |
+          int leggi_stazione(...){
+            ...
+            if(...)
+              pthread_cond_wait(...);
+            ...
+          }
 
     message: La condizione va controllata all'interno di un ciclo "while".
              Nei programmi basati su libreria PThreads, il monitor è sempre di tipo signal-and-continue.

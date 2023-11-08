@@ -11,7 +11,7 @@
       "points": 1
     },
     {
-      "name": "Prelievi multipli",
+      "name": "Lettori-scrittori su più oggetti monitor",
       "setup": "",
       "run": "/bin/bash ./lettori-scrittori_su_piu_oggetti_monitor/.test/lettori-scrittori.sh",
       "input": "",
@@ -21,7 +21,7 @@
       "points": 1
     },
     {
-      "name": "Lettori-scrittori con monitor e processi",
+      "name": "Produttore-consumatore con priorità",
       "setup": "",
       "run": "/bin/bash ./produttore-consumatore_con_priorita/.test/prod-cons-prio.sh",
       "input": "",
