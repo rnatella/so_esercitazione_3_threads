@@ -12,8 +12,16 @@ rules:
             pthread_join(...);
             ...
           }
+      - pattern-not-inside: |
+          ...
+          for(int $I=0; $I<$N; $I++){
+            ...
+            pthread_join(...);
+            ...
+          }
 
-    message: Sono stati instanziati 6 threads in totale, controllare che la pthread_join() venga invocata per 6 volte
+
+    message: Sono stati instanziati 6 threads in totale, controllare che la pthread_join() venga invocata più volte
     languages:
       - c
     severity: WARNING
