@@ -19,9 +19,7 @@ void rimuovi_prod_cons(PriorityProdCons* p){
 
 }
 
-void produci_alta_prio(PriorityProdCons* p){
-
-	int value;
+void produci_alta_prio(PriorityProdCons* p, int value) {
 
 	printf("Produttore tipo 1 accede al monitor\n");
 
@@ -36,7 +34,7 @@ void produci_alta_prio(PriorityProdCons* p){
 
 	/* Produzione */
 
-	value = rand() % 12;
+	/*TBD*/ = value;
 
 	printf("Produttore tipo 1 ha prodotto %d\n", value);
 
@@ -46,7 +44,7 @@ void produci_alta_prio(PriorityProdCons* p){
 
 
 
-void produci_bassa_prio(PriorityProdCons* p){
+void produci_bassa_prio(PriorityProdCons* p, int value) {
 
 	int value;
 
@@ -77,7 +75,7 @@ void produci_bassa_prio(PriorityProdCons* p){
 
 
 
-void consuma(PriorityProdCons* p){
+int consuma(PriorityProdCons* p){
 
 	int value;
 
@@ -95,6 +93,6 @@ void consuma(PriorityProdCons* p){
 
 	printf("Consumatore ha consumato %d\n", value);
 
-
+	return value;
 }
 

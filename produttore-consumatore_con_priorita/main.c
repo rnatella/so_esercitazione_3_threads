@@ -8,10 +8,11 @@
 void * produttore_alta_priorita(void * p)
 {
 
-	int i;
+	/* TBD: Gestire il passaggio di parametri */
 
+	for(int i=0; i<3; i++) {
 
-	for(i=0; i<3; i++) {
+		int value = rand() % 12;
 
 		/* TBD: Chiamare il metodo di produzione alta priorità */
 
@@ -25,10 +26,11 @@ void * produttore_alta_priorita(void * p)
 void * produttore_bassa_priorita(void * p)
 {
 
-	int i;
+	/* TBD: Gestire il passaggio di parametri */
 
+	for(int i=0; i<3; i++) {
 
-	for(i=0; i<3; i++) {
+		int value = 13 + (rand() % 12);
 
 		/* TBD: Chiamare il metodo di produzione bassa priorità */
 
@@ -42,13 +44,13 @@ void * produttore_bassa_priorita(void * p)
 void * consumatore(void * p)
 {
 
-	int i;
+	/* TBD: Gestire il passaggio di parametri */
 
-
-
-	for(i=0; i<12; i++) {
+	for(int i=0; i<12; i++) {
 
 		/* TBD: Chiamare il metodo consuma() */
+
+		int value = /* TBD */
 
 		sleep(1);
 	}
@@ -87,7 +89,7 @@ int main(int argc, char *argv[])
 	/* TBD: Effettuare la join con i thread */
 
 
-	/* TBD: Richiamare il distruttore dell'oggetto monitor e deallocarlo */
+	/* TBD: Richiamare il distruttore dell'oggetto monitor, e deallocare la memoria */
 
 }
 
