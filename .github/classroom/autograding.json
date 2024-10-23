@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Una struttura dati stack thread-safe",
-      "setup": "pip3 -qqq install semgrep && sudo apt -qq install expect 2>/dev/null >/dev/null",
+      "setup": "pip3 -qqq install semgrep==1.76.0 && sudo apt -qq install expect 2>/dev/null >/dev/null",
       "run": "/bin/bash ./una_struttura_dati_stack_thread-safe/.test/stack.sh",
       "input": "",
       "output": "pass",
